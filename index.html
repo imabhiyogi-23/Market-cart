@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Market Cart">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Market Cart</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>Market Cart</h1>
+    <label class="budget">Budget ₹<input id="budget" type="number" inputmode="decimal" min="0" placeholder="0" aria-label="Budget"></label>
+  </header>
+
+  <section class="summary">
+    <p class="label" id="lbl">Left to spend</p>
+    <p class="left" id="left">₹0</p>
+    <div class="bar"><i id="fill"></i></div>
+    <p class="meta"><span>In cart <b id="total">₹0</b></span><span id="count">0 items</span></p>
+  </section>
+
+  <button class="primary" id="add">Snap an item</button>
+  <section id="cart"></section>
+</main>
+
+<footer><button class="primary" id="pay" disabled>Go to counter</button></footer>
+
+<div class="sheet" id="addSheet"><div class="panel">
+  <label class="snap" id="snap"><span>Tap to take a photo</span><input id="file" type="file" accept="image/*" capture="environment" hidden></label>
+  <label for="iname">Item name</label>
+  <input id="iname" placeholder="Tomatoes">
+  <div class="two">
+    <div><label for="iprice">Price on tag (₹)</label><input id="iprice" type="number" inputmode="decimal" min="0" placeholder="0"></div>
+    <div><label for="iqty">Quantity</label><input id="iqty" type="number" inputmode="numeric" min="1" value="1"></div>
+  </div>
+  <p class="hint" id="preview"></p>
+  <button class="primary" id="save">Add to cart</button>
+  <button class="ghost" id="cancel">Cancel</button>
+</div></div>
+
+<div class="sheet" id="cSheet"><div class="panel center">
+  <p class="label">Pay exactly</p>
+  <p class="pay-total" id="ctotal">₹0</p>
+  <div class="receipt" id="receipt"></div>
+  <button class="primary" id="paid">Paid, start new trip</button>
+  <button class="ghost" id="back">Back to shopping</button>
+</div></div>
+
+<script src="app.js"></script>
+</body>
+</html>
