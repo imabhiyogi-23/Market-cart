@@ -1,4 +1,4 @@
-var CACHE = "market-cart-v1";
+var CACHE = "market-cart-v2";
 var FILES = ["./", "index.html", "style.css", "app.js", "manifest.json", "icon-192.png", "icon-512.png", "icon-maskable-512.png", "apple-touch-icon.png"];
 
 self.addEventListener("install", function (e) {

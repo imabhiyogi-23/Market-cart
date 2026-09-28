@@ -16,23 +16,63 @@
 </head>
 <body>
 <main>
-  <header>
-    <h1>Market Cart</h1>
-    <label class="budget">Budget ₹<input id="budget" type="number" inputmode="decimal" min="0" placeholder="0" aria-label="Budget"></label>
-  </header>
-
-  <section class="summary">
-    <p class="label" id="lbl">Left to spend</p>
-    <p class="left" id="left">₹0</p>
-    <div class="bar"><i id="fill"></i></div>
-    <p class="meta"><span>In cart <b id="total">₹0</b></span><span id="count">0 items</span></p>
+  <section class="view on" id="v-cart">
+    <header>
+      <h1 id="hello">Market Cart</h1>
+      <label class="budget">Budget ₹<input id="budget" type="number" inputmode="decimal" min="0" placeholder="0" aria-label="Budget"></label>
+    </header>
+    <section class="summary">
+      <p class="label" id="lbl">Left to spend</p>
+      <p class="left" id="left">₹0</p>
+      <div class="bar"><i id="fill"></i></div>
+      <p class="meta"><span>In cart <b id="total">₹0</b></span><span id="count">0 items</span></p>
+    </section>
+    <button class="primary" id="add">Snap an item</button>
+    <section id="cart"></section>
   </section>
 
-  <button class="primary" id="add">Snap an item</button>
-  <section id="cart"></section>
+  <section class="view" id="v-reg">
+    <header><h1>Regulars</h1></header>
+    <p class="label">Your usual items. Tap + to add one to the cart. Star an item in your cart to save it here.</p>
+    <section id="regs"></section>
+  </section>
+
+  <section class="view" id="v-hist">
+    <header><h1>History</h1></header>
+    <div class="monthnav"><button id="prev" aria-label="Previous month">‹</button><b id="mlabel"></b><button id="next" aria-label="Next month">›</button></div>
+    <div class="cal" id="cal"></div>
+    <section class="summary" style="margin-top:22px">
+      <p class="label">Spent this month</p>
+      <p class="left" id="mspent" style="font-size:36px">₹0</p>
+      <div class="bar"><i id="mfill"></i></div>
+      <p class="meta"><span id="mtrips">0 trips</span><span id="mleft"></span></p>
+    </section>
+    <section id="day"></section>
+  </section>
+
+  <section class="view" id="v-prof">
+    <header><h1>Profile</h1></header>
+    <div class="prow"><span>Name</span><input id="pname" placeholder="Your name" aria-label="Name"></div>
+    <div class="prow"><span>Budget per trip (₹)</span><input id="pbudget" type="number" inputmode="decimal" min="0" placeholder="0"></div>
+    <div class="prow"><span>Monthly budget (₹)</span><input id="pmonthly" type="number" inputmode="decimal" min="0" placeholder="0"></div>
+    <p class="label" style="margin:28px 0 4px">Your numbers</p>
+    <div class="prow"><span>Trips</span><b id="stTrips">0</b></div>
+    <div class="prow"><span>Total spent</span><b id="stTotal">₹0</b></div>
+    <div class="prow"><span>Average per trip</span><b id="stAvg">₹0</b></div>
+    <p class="label" style="margin:28px 0 0">Data</p>
+    <button class="link" id="export">Export data (JSON)</button>
+    <button class="link bad" id="reset">Erase all data</button>
+  </section>
 </main>
 
-<footer><button class="primary" id="pay" disabled>Go to counter</button></footer>
+<div class="paybar" id="paybar"><button class="primary" id="pay" disabled>Go to counter</button></div>
+
+<nav id="nav">
+  <button data-v="cart" class="on"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.4 10h9.2L19 7H6.2"/><circle cx="9" cy="19" r="1.3"/><circle cx="16" cy="19" r="1.3"/></svg>Cart<span class="badge" id="badge"></span></button>
+  <button data-v="reg"><svg viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9l-5.2 2.8 1-5.9-4.3-4.1 5.9-.8z"/></svg>Regulars</button>
+  <button data-v="hist"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg>History</button>
+  <button data-v="prof"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.6-3.6 3.5-5.5 7-5.5s6.4 1.9 7 5.5"/></svg>Profile</button>
+</nav>
 
 <div class="sheet" id="addSheet"><div class="panel">
   <label class="snap" id="snap"><span>Tap to take a photo</span><input id="file" type="file" accept="image/*" capture="environment" hidden></label>

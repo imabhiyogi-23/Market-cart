@@ -4,6 +4,10 @@ A tiny grocery budget tracker. Snap a photo of each item, enter the price on the
 
 ## Features
 - Budget with live "left to spend" and progress bar (turns red when over)
+- Bottom navigation: Cart, Regulars, History, Profile
+- **Regulars:** star an item to save it, then add it to any cart in one tap
+- **History:** calendar with daily spend, tap a day to see its trips, monthly total vs monthly budget
+- **Profile:** name, budget per trip, monthly budget, stats, export or erase data
 - Camera photo per item, price, quantity
 - Running cart total, edit quantity, remove items
 - Counter screen with exact amount to pay and itemised receipt
